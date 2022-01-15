@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ошибка</title>
+</head>
+<body style="background: linear-gradient(255.96deg, 
+		rgba(182, 0, 44, 0.75) 24.56%, 
+		rgba(153, 25, 102, 0.65) 99.78%), #0B7187;">
+	<div>
+		<div style="margin-top: 5%;">
+			<h1 style="text-align: center; color: #FFFFFF;">Сайт растерялся и не понимает, что от него хотят..</h1>
+		</div>
+		{% if error %}
+		<div style="margin-top: 15%;">
+			<h2 style="text-align: center; color: #FFFFFF;">{{ error }}</h2>
+		</div>
+		{% endif %}
+	</div>
+</body>
+</html>

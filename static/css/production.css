@@ -1,0 +1,209 @@
+
+*{
+	box-sizing : border-box;
+}
+
+@font-face {
+	font-family : Roboto-Medium;
+	src         : url(../fonts/Roboto/Roboto-Medium.ttf);
+}
+
+@font-face {
+	font-family : Roboto-Regular;
+	src         : url(../fonts/Roboto/Roboto-Regular.ttf);
+}
+
+@font-face {
+	font-family : Paytone-One;
+	src         : url(../fonts/PaytoneOne-Regular.ttf);
+}
+
+.wrapper {
+	position : absolute;
+	top      : 0;
+	left     : 0;
+
+	height   : 100vh;
+	width    : 100vw;
+}
+
+.part-1 {
+	position   : relative;
+	float      : left;
+
+	height     : 100%;
+	width      : 50%;
+
+	background : linear-gradient(135.9deg,
+
+	rgba(90, 15, 60, 0.46) 35.34%, #0E0447 93.23%),
+	#110053;
+}
+
+.part-2 {
+	position   : relative;
+	float      : left;
+
+	height     : 100%;
+	width      : 50%;
+
+	background : linear-gradient(44.1deg,
+
+	rgba(17, 0, 83, 0.6) 7.3%,
+	rgba(112, 8, 64, 0.6) 100%), #971A7B;
+}
+
+.logo {
+	position    : relative;
+	top         : 50%;
+	left        : 50%;
+
+	height      : 138px;
+	width       : 492px;
+	margin-top  : -69px;
+	margin-left : -246px;
+}
+
+.logo-logo{
+	position : relative;
+}
+
+.logo-text-1 {
+	margin      : 0;
+
+	font-family : Paytone-One;
+	font-size   : 64px;
+	font-style  : normal;
+	font-weight : 500;
+	color       : #C00051;
+	line-height : 75px;
+	text-align  : center;
+}
+
+.logo-production-text {
+	position    : relative;
+	float       : left;
+
+	margin-top  : 6px;
+
+	font-family : Roboto-Medium;
+	font-size   : 48px;
+	font-style  : normal;
+	font-weight : 500;
+	color       : #FFFFFF;
+	line-height : 56px;
+	text-align  : justify;
+}
+
+#star-logo{
+	position : absolute;
+	top      : -34px;
+	right    : 21%;
+}
+
+.login {
+	position    : absolute;
+	top         : 50%;
+	left        : 50%;
+
+	height      : 228px;
+	width       : 325px;
+	margin-top  : -114px;
+	margin-left : -162px;
+}
+
+.username {
+	height        : 60px;
+	width         : 100%;
+	margin-bottom : 24px;
+	padding       : 12px 24px;
+
+	background    : #E3E3E3;
+	font-family   : Roboto-Regular;
+	font-size     : 18px;
+	font-style    : normal;
+	font-weight   : 500;
+	line-height   : 21px;
+	border        : 0;
+	border-radius : 24px;
+	box-shadow    : 1px 1px 8px rgba(0, 0, 0, 0.25);
+	outline       : none;
+
+	transition    : 0s;
+}
+.username:focus{
+	box-shadow    : 1px 1px 20px rgba(2, 225, 245);
+}
+.password {
+	height        : 60px;
+	width         : 100%;
+	margin-bottom : 24px;
+	padding       : 12px 24px;
+
+	background    : #E3E3E3;
+	font-family   : Roboto-Regular;
+	font-size     : 18px;
+	font-style    : normal;
+	font-weight   : 500;
+	line-height   : 21px;
+	border        : 0;
+	border-radius : 24px;
+	box-shadow    : 1px 1px 8px rgba(0, 0, 0, 0.25);
+	outline       : none;
+
+	transition    : 0s;
+}
+.password:focus{
+	box-shadow    : 1px 1px 20px rgba(2, 225, 245);
+}
+.btn-form {
+	height        : 60px;
+	width         : 100%;
+
+	cursor        : pointer;
+	background    : #960966;
+	font-family   : Roboto-Medium;
+	font-size     : 22px;
+	font-style    : normal;
+	font-weight   : 500;
+	color         : #FFFFFF;
+	line-height   : 26px;
+	border        : 0;
+	border-radius : 24px;
+	box-shadow    : 1px 1px 8px rgba(0, 0, 0, 0.25);
+	outline       : none;
+
+	transition    : 0s;
+}
+
+#star-part1-t{
+	position : absolute;
+
+	height   : 58px;
+	width    : 58px;
+}
+
+#star-part1-d{
+	position : absolute;
+	bottom   : 0;
+
+	height   : 58px;
+	width    : 58px;
+}
+
+#star-part2-t{
+	position : absolute;
+	right    : 0;
+
+	height   : 58px;
+	width    : 58px;
+}
+
+#star-part2-d{
+	position : absolute;
+	right    : 0;
+	bottom   : 0;
+
+	height   : 58px;
+	width    : 58px;
+}
