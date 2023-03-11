@@ -4,7 +4,7 @@
 }
 
 body{
-	overflow-y       : scroll;
+/*	overflow-y       : scroll;*/
 	background-color : #EDEEF0;
 }
 
@@ -99,14 +99,23 @@ body{
 	background-color : #fff;
 	box-shadow       : 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
-
+.container {
+	width: 100%;
+	max-width: 1330px;
+	margin: 0 auto;
+}
+.navbar .container{
+	display: flex;
+	justify-content: space-between;
+	padding: 0 40px;
+	gap: 1rem;
+}
+.navbar__navigation {
+	display: flex;
+	gap: 1rem;
+}
 /* Логотип */
 .logo {
-	float          : left;
-
-	height         : 100%;
-	width          : 94px;
-	margin-left    : 40px;
 	padding-top    : 15px;
 	padding-bottom : 15px;
 	text-align: center;
@@ -123,21 +132,11 @@ body{
 /* Год */
 .year {
 	position    : relative;
-	float       : left;
-
-	height      : 100%;
-	width       : 93px;
-	margin-left : 50px;
 	padding     : 15px 0 15px 0;
 }
 
 .year-button{
-	position         : relative;
-	float            : left;
-
-	height           : 100%;
-	width            : 100%;
-	padding          : 12px 0px 12px 0px;
+	padding          : 12px 40px;
 
 	cursor           : pointer;
 	background       : none;
@@ -164,41 +163,19 @@ body{
 }
 
 .year-option {
-	position    : relative;
-	float       : left;
-
-	height      : 40px;
-	width       : 100%;
-
-	cursor      : pointer;
-	background  : none;
-	font-family : Roboto-regular;
-	font-size   : 13.33px;
-	color       : #373737;
-	border      : none;
-	outline     : none;
-
-	transition  : 0s;
+	background  : none
 }
 
 /* Месяц */
 .month-all {
-	position    : relative;
-	float       : left;
-
+	position: relative;
 	height      : 100%;
-	margin-left : 10px;
-	padding     : 15px 0 15px 0;
+	padding     : 15px 6px;
+	display: flex;
 }
 
 .month{
-	position       : relative;
-	float          : left;
-
-	height         : 100%;
-	width          : 70px;
-	padding-bottom : 3px;
-
+	position: relative;
 	cursor         : pointer;
 	background     : none;
 	font-family    : Roboto-regular;
@@ -240,8 +217,6 @@ body{
 /* Профиль */
 .profile{
 	position: relative;
-	float: right;
-	margin-right: 40px;
 	padding: 15px 0 15px 0;
 
 }
@@ -291,6 +266,7 @@ body{
 	outline        : none;
 	border-radius: 8px;
 }
+
 /*  */
 .navigation {
 	position  : fixed;
@@ -360,3 +336,55 @@ body{
 
 }
 /*  */
+
+.month-mob {
+	display: none;
+	position: relative;
+	padding: 15px 0;
+}
+.month-mob__btn {
+	text-align: center;
+}
+.month-mob__push {
+	width: revert;
+	display: flex;
+	flex-direction: column;
+	transition: opacity .4s;
+	opacity: 0;
+}
+.month-mob__push .month-mob__btn {
+	background: none;
+}
+.month-mob__push--active {
+	opacity: 1;
+}
+@media screen and (max-width: 1050px) {
+	.month-all {
+		display: none;
+	}
+	.year-button {
+		padding: 12px 20px;
+	}
+	.month-mob {
+		display: block;
+	}
+}
+@media screen and (max-width: 400px) {
+	.navbar .container{
+	padding: 0 10px;
+	}
+	.navbar__navigation {
+		gap: .5rem;
+	}
+	.year-button {
+		padding: 12px 15px;
+	}
+}
+
+@media screen and (max-width: 671px) {
+	.only-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}

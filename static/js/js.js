@@ -1,5 +1,4 @@
- const urlMain = 'https://wish-production.up.railway.app',
- // const urlMain = 'http://localhost:8000',
+ const urlMain = `${window.location.protocol}//${document.location.host}`,
 	note = {
 	id: 1,
 	name: 'Заметки',
@@ -57,9 +56,9 @@ choice = {
 	};
 //
 
-activiteFull()
-activite_navigation ()
-// Активация изменения <Заметки-Задачи-Цели>
+ activiteFull()
+ activite_navigation ()
+ // Активация изменения <Заметки-Задачи-Цели>
 function activite_navigation () {
 	let notes = document.querySelector('#navigation-but-notes'),
 		tasks = document.querySelector('#navigation-but-tasks'),
@@ -166,10 +165,13 @@ function render () {
 			activite_add(card, date)
 			main.append(card);
 
-			if (nowDate == 'Сегодня') scroll_by_element(index)
+			if (nowDate == 'Сегодня') card.classList.add('card--now')
+				
 			if ((index+1) % 7 == 0) main.append(plug.cloneNode(true))
 		})
 		highlight_month ()
+
+		scrollToElement(document.querySelector('.card--now'))
 
 		// Запрос к джанго на наличие заметок
 		async function requestGet (date) {
@@ -402,23 +404,9 @@ function render () {
 		}
 	}
 }
-// scroll
-// Скролл до нужного элемента
-function scroll_by_element (index) {
-	let x,
-		count = 872; // 394
-	
-	while(index % 7 != 0){
-		index--
-	}
-	x = (index/7)*count
-	
-	setTimeout(() => {
-		window.scroll({
-			top: x,
-			// behavior: 'smooth'
-		})
-	},200)
+function scrollToElement(elem) {
+	  elem.scrollIntoView({ behavior: "smooth", block: "center"})
+	  // setTimeout(() => window.scroll(0, -200), 500)
 }
 // activite
 // Активация изменения/удаления заметки (рекурсия)
@@ -674,21 +662,39 @@ function activiteFull () {
 	month_progress();
 
 	function activite_month () {
-		let x = document.querySelectorAll('.month')
+		let x = document.querySelectorAll('.month'),
+				mob = document.querySelector('.month-mob'),
+				mobBtn = mob.querySelector('#month'),
+				mobList = mob.querySelector('.month-mob__push'),
+				mobLi = mobList.querySelectorAll('.month-mob__btn');
 
 		x.forEach((i,index) => {
 			i.addEventListener('click', (e) => {
-				let year = +document.querySelector('.year-button').textContent;
+				let year = +document.querySelector('#year-button').textContent;
 				e.preventDefault();
 				choice.calendar = new Calendar(new Date(year, index));
+				mobBtn.textContent = i.textContent
 				render();
 			})
 
 		})
+
+		let visibleMob = () => mobList.classList.toggle('month-mob__push--active')
+
+		mobBtn.addEventListener('click', () => visibleMob()) 
+
+		mobLi.forEach( (i, index) => i.addEventListener('click', (e) => {
+			let year = +document.querySelector('#year-button').textContent;
+			mobBtn.textContent = i.textContent
+			choice.calendar = new Calendar(new Date(year, index));
+			visibleMob()
+			render();
+		}))
+
 	}
 
 	function activite_year () {
-		let yearNow = document.querySelector('.year-button'),
+		let yearNow = document.querySelector('#year-button'),
 			push = document.querySelector('.year-push');
 		// Скрывать\показывать
 		yearNow.addEventListener('click', (e) => {
