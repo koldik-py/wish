@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style_js.css' %}">
+	
+	<title>{{ title }}</title>
+</head>
+<body> <input type="hidden" value="" class="">
+	{% csrf_token %}
+	<nav class="navbar">
+		<div class="logo">
+			<p class="logo-part-1">WISH</p>
+		</div>
+		<div class="year">
+			<button class="year-button">2023</button>
+			<div class="year-push" style="visibility: hidden">
+				<button class="year-option">2022</button>
+				<button class="year-option">2021</button>
+			</div>
+		</div>
+		<div class="month-all">
+			<div class="month-Scale"><div class="progress"></div></div>
+			<button class="month">Январь<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Февраль<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Март<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Апрель<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Май<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Июнь<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Июль<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Август<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Сентябрь<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Октябрь<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Ноябрь<img src="{% static 'media/line-month.svg' %}" class="month-line"></button>
+			<button class="month">Декабрь</button>
+		</div>
+		<div class="profile">
+			<div class="profile-push" style="opacity: 0; visibility: hidden;">
+				<div class="profile-push-name">{{ request.user }}</div>
+				<button class="profile-push-button" value="profile" style="background: #DD4200;">Профиль</button>
+				<button class="profile-push-button" value="logout" style="background: #C00000;">Выйти</button>
+			</div>
+			<button class="profile-button" style="background:#41C3FFFF;">{{ user_logo }}</button>
+		</div>
+	</nav>
+	<div class="navigation" style="opacity: 1;">
+		<div class="window-navigation">
+			<button id="navigation-but-notes" style="color:#2B2B2B;font-family:Roboto-Medium;">Заметки</button>
+			<button id="navigation-but-tasks" style="color:#8E8E8E;font-family:Roboto-regular;">Задачи</button>
+			<button id="navigation-but-target" style="color:#8E8E8E;font-family:Roboto-regular;">Цели</button>
+		</div>
+	</div>
+
+			<div class="choice-category-push" style="visibility: hidden;">
+				{% for i in category %}
+				<div class="choise-categoty-variable">
+					<img src="{{ i.icon.icon.url }}" class="push-category-icon">
+					<div class="push-category-title" style="font-family: Roboto-Light;">{{ i.title }}</div>
+				</div>
+				{% endfor %}
+			</div>
+			
+		<!-- <div class="push-exit">
+			<img src="{% static 'media/delete.png' %}" class="push-exit-img">
+		</div> -->
+	</div>
+	<div class="wrapper">
+		<div class="only-card"></div>
+	</div>
+	<script src="{% static 'js/library/calendar.js' %}"></script>
+	<script src="{% static 'js/js.js' %}"></script>
+</body>
+</html>

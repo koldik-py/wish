@@ -1,0 +1,246 @@
+<div class="container-card-target">
+	<div class="card-target">
+		<div class="photo-target-form" style="background: #737373;">
+			<button class="photo-target-form-btn">
+				<img src="{% static 'media/flower.png' %}" class="photo-target-form-btn-i">
+				<p class="photo-target-form-btn-t">Добавить картинку</p>
+				<input type="file" name="" id="" class="photo-target-form-i">
+			</button>
+			<script>
+				let btn = document.querySelector('.photo-target-form-btn'),
+					form = document.querySelector('.photo-target-form-i'),
+					img = document.querySelector('.photo-target-form'),
+					reader  = new FileReader();
+
+					btn.addEventListener('click', ()=> {
+						form.click()
+					})
+					form.addEventListener('change', ()=>{
+						reader.addEventListener('load', ()=> {
+							img.style.background = ''
+							img.style.backgroundSize = 'cover';
+							img.style.backgroundImage = 'url("'+ reader.result +'")';
+							btn.style.display = 'none';
+						})
+
+						reader.readAsDataURL(form.files[0]);
+						
+					})
+					
+			</script>
+		</div>
+		<div class="target-main-form">
+			<div class="color-target-form">
+				<div class="color-target-form-c" style="background: #56CCF2;width: 16px;height: 16px; margin-top: -4px;"></div>
+				<div class="color-target-form-c" style="background: #EB5757;"></div>
+				<div class="color-target-form-c" style="background: #F2994A;"></div>
+				<div class="color-target-form-c" style="background: #F2C94C;"></div>
+				<div class="color-target-form-c" style="background: #219653;"></div>
+				<div class="color-target-form-c" style="background: #9B51E0;"></div>
+				<div class="color-target-form-c" style="background: #BB6BD9;"></div>
+			</div>
+			<div class="title-target-form">
+				<p class="title-target-form-t">Опишите свою цель</p>
+				<textarea name="" id="" cols="30" rows="10" class="title-target-form-i"></textarea>
+			</div>
+			<div class="date-target-form">
+				<p class="title-target-form-t">Планирую достичь к:</p>
+				<input type="date" class="date-target-form-i">
+			</div>
+			<div class="progress-target-form">
+				<p class="title-target-form-t">Желаемый результат (Цифры)</p>
+				<input type="text" class="progress-target-form-i">
+			</div>
+			<button class="target-form-btn">Сохранить</button>
+		</div>
+	</div>
+</div>
+
+.container-card-target {
+	position: relative;
+	width: 352px;
+	min-height: 394px;
+
+	padding: 0px 12px 32px 12px;
+}
+.card-target {
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	overflow: hidden;
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 1px 1px 8px 
+	rgba(0, 0, 0, 0.25);
+}
+
+.target-main-form {
+	width: 100%;
+	height: 100%;
+	padding: 24px 24px;
+}
+.photo-target-form {
+	position: relative;
+	width: 100%;
+	height: 187px;
+}
+.photo-target-form-i {
+	display: none;
+	margin: 0px;
+	cursor: pointer;
+	outline:0;
+	opacity:0;
+}
+.photo-target-form-btn{
+	position: absolute;
+	padding: 12px 20px;
+	width: 216px;
+	height: 42px;
+	top: 50%;
+	left: 50%; 
+	margin-top: -21px;
+	margin-left: -108px;
+	padding: 0px;
+	border-radius: 6px;
+	cursor: pointer;
+	outline       : none;
+	transition    : 0s;
+	border: 0;
+}
+.photo-target-form-btn-i {
+	float: left;
+	margin: 4px 5px 0 20px;
+	width: 34px;
+	height: 34px;
+}
+.photo-target-form-btn-t {
+	float: left;
+}
+.color-target-form {
+	position: relative;
+	height: 24px;
+	
+}
+.color-target-form-c {
+	float: left;
+	width: 8px;
+	height: 8px;
+	border-radius: 100%;
+	margin-right:  8px;
+
+}
+.color-target-form-c:hover {
+	transition: 0.5s;
+	margin-top: -4px;
+	margin-left: -4px;
+	width: 16px;
+	height: 16px;
+}
+.title-target-form {
+	margin-bottom: 16px;
+}
+.title-target-form-t {
+	margin: 0 0 8px 0;
+	font-family: Roboto-regular;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+
+	color: #7A7A7A;
+}
+.title-target-form-i {
+	resize        : none;
+
+	width         : 100%;
+	height: 155px;
+	padding       : 12px 15px;
+
+	font-family   : Roboto-regular;
+	font-size     : 14px;
+	font-style    : normal;
+	font-weight   : 500;
+	line-height   : 21px;
+	border        : 1px solid #B1B1B1;
+	border-radius : 6px;
+
+	outline       : none;
+
+	transition    : 0s;
+}
+.date-target-form {
+	margin-bottom: 16px;
+}
+
+.date-target-form-i {
+	padding: 14px 48px;
+	height: 42px;
+	width: 100%;
+	border: 1px solid #B1B1B1;
+	border-radius : 6px;
+	outline       : none;
+	transition    : 0s;
+
+	font-family: Roboto-light;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 14px;
+	/* identical to box height */
+
+	text-align: justify;
+
+	color: #000000;
+}
+::-webkit-calendar-picker-indicator {
+	position: absolute;
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	left: 14px;
+	background: url('../media/calendar-google.png');
+	background-size: 100%;
+}
+.progress-target-form {
+	margin-bottom: 16px;
+}
+.progress-target-form-i {
+		padding: 14px 14px;
+	height: 42px;
+	width: 100%;
+	border: 1px solid #B1B1B1;
+	border-radius : 6px;
+	outline       : none;
+	transition    : 0s;
+
+	font-family: Roboto-light;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 12px;
+	line-height: 14px;
+	/* identical to box height */
+
+	text-align: justify;
+
+	color: #000000;
+}
+.target-form-btn {
+	width: 100%;
+	height: 42px;
+	border-radius: 6px;
+	cursor: pointer;
+	outline       : none;
+	transition    : 0s;
+	border: 0;
+
+	font-family: Roboto-medium;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+
+	color: #FFFFFF;
+
+	background: #2F80ED;
+}
