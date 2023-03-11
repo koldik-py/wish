@@ -1,5 +1,5 @@
-// const urlMain = 'https://wish-r.herokuapp.com',
- const urlMain = 'http://localhost:8000',
+ const urlMain = 'https://wish-production.up.railway.app/',
+ // const urlMain = 'http://localhost:8000',
 	note = {
 	id: 1,
 	name: 'Заметки',
