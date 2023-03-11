@@ -1,5 +1,5 @@
-const urlMain = 'https://wish-r.herokuapp.com',
-// const urlMain = 'http://localhost:8000',
+// const urlMain = 'https://wish-r.herokuapp.com',
+ const urlMain = 'http://localhost:8000',
 	note = {
 	id: 1,
 	name: 'Заметки',
@@ -1249,20 +1249,6 @@ function add_progress (main, elem) {
 	})
 }
 
-// Скрываем навигацию
-function hide_navigation() {
-	let navigation = document.querySelector('.navigation');
-
-	navigation.style.opacity = 0;
-
-	navigation.addEventListener('mouseenter', ()=> {
-		navigation.style.opacity = 1;
-	})
-	navigation.addEventListener('mouseleave', ()=> {
-		navigation.style.opacity = 0
-	})
-}
-setTimeout(hide_navigation, 1000)
 
 // Анимация загрузки
 function loadAnimation (elem) {

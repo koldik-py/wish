@@ -165,8 +165,12 @@ animation-name: slidein;
 	width        : 25px;
 	margin-top   : 8px;
 	margin-right : 12px;
+	cursor: pointer;
+	transition: transform .4s;
 }
-
+.card-down-add-icon:hover {
+	transform: scale(1.15)
+}
 .add{
 	position   : relative;
 	left       : 11px;

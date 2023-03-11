@@ -26,9 +26,10 @@
 		<div class="login">
 			<form method="POST">
 				{% csrf_token %}
+				<button class="btn-form test-user">test</button>
 				<input type="text" name="username" placeholder="Логин" class="username" autofocus>
 				<input type="password" name="password" placeholder="Пароль" class="password">
-				<button class="btn-form">Войти</button>
+				<button class="btn-form" type="submit">Войти</button>
 			</form>
 		</div>
 		<img src="{% static 'media/star4.svg' %}" id="star-part2-t">
@@ -36,16 +37,27 @@
 	</div>
 </div>
 <script>
-	let form = document.querySelector('form');
+	let form = document.querySelector('form'),
+			username = document.querySelector('.username'),
+			password = document.querySelector('.password');
 
 	form.addEventListener('keydown', (e) => {
 		if (e.keyCode == 13) e.preventDefault()
 	})
-	document.querySelector('.username').addEventListener('keydown', (e) => {
+	username.addEventListener('keydown', (e) => {
 		if (e.keyCode == 13) document.querySelector('.password').focus()
 	})
-	document.querySelector('.password').addEventListener('keydown', (e) => {
+	password.addEventListener('keydown', (e) => {
 		if (e.keyCode == 13) form.submit()
+	})
+
+	document.querySelector('.test-user').addEventListener('click', e => {
+		e.preventDefault()
+
+		username.value = "test1"
+		password.value = "420356"
+
+		setTimeout(() => form.submit(), 500)
 	})
 </script>
 </body>
