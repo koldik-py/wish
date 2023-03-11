@@ -1,4 +1,4 @@
- const urlMain = 'https://wish-production.up.railway.app/',
+ const urlMain = 'https://wish-production.up.railway.app',
  // const urlMain = 'http://localhost:8000',
 	note = {
 	id: 1,
