@@ -351,12 +351,14 @@ body{
 	flex-direction: column;
 	transition: opacity .4s;
 	opacity: 0;
+	visibility: hidden;
 }
 .month-mob__push .month-mob__btn {
 	background: none;
 }
 .month-mob__push--active {
 	opacity: 1;
+	visibility: visible;
 }
 @media screen and (max-width: 1050px) {
 	.month-all {
