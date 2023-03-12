@@ -6,12 +6,12 @@
 
 # Как запустить у себя
 - Нужен Python 3. Yстанавливаем virtualenv
--- pip install virtualenv
+`pip install virtualenv`
 - Создаём саму среду 
--- python3 -m venv NAME
+`python3 -m venv NAME`
 - активируем среду 
--- source NAME/bin/activate
+`source NAME/bin/activate`
 - Устанавливаем пакеты python
--- pip install -r requirements.txt
+`pip install -r requirements.txt`
 - Запускаем сервер
---python3 manage.py runserver  
+`python3 manage.py runserver`
